@@ -7,6 +7,9 @@
     background-position: center center;
     position: relative;
     z-index: 1;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .overlay {
@@ -17,4 +20,74 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: -1;
+}
+
+.text {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: flex-start ;
+    text-align: center;
+}
+
+.visParent {
+    overflow: hidden;
+    padding: 0 20px;
+
+}
+
+
+.paragraph {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.up {
+    animation: fadeIn 0.8s ease-in-out;
+    font-size: 70px;
+}
+.left {
+    padding-top: 20px;
+    animation: fadeIn 1.6s  ease-in-out;
+}
+@keyframes fadeUpFirst {
+    0%{
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    80%{
+        opacity: 1;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1 !important;
+        display: block;
+        transform: translateY(0px);
+    }
+}
+
+.info {
+    font-size: 18px;
+    margin-top: 40px;
+    line-height: 2;
+    color:#ababab;
+    animation: fadeIn 2.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1 !important;
+        display: block;
+        transform: translateY(0px);
+    }
 }
