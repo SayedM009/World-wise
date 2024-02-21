@@ -1,0 +1,40 @@
+.navBarContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:20px 30px;
+    position: relative;
+}
+.logoContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logoImg {
+    width: 70px;
+}
+.logoText {
+    margin-left: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color:white;
+}
+.nav {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 200px;
+}
+
+.links {
+    text-decoration: none;
+    padding:10px 20px;
+    text-transform: uppercase;
+}
+
+.nav :global(.active) {
+    background-color:#4caf50;
+    color:white;
+
+}
