@@ -1,0 +1,78 @@
+.arrowRight,
+.arrowLeft {
+    background-color: transparent;
+    color: white;
+    border: 3px solid #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    transition: .3s;
+    cursor: pointer;
+    position: absolute;
+    top:50%;
+}
+.arrowRight {
+    right: 3%;
+    transform: translateY(-50%);
+    animation: fadeLeft 1s ease-in-out
+}
+
+@keyframes fadeLeft {
+    0%{
+        opacity: 0;
+        right: -5%
+    }
+    100% {
+        opacity: 1;
+        right: 3%
+    }
+}
+
+.arrowLeft {
+    left: 3%;
+    transform: translateY(-50%);
+    animation: fadeRight 1s ease-in-out
+}
+
+@keyframes fadeRight {
+    0%{
+        opacity: 0;
+        left: -5%
+    }
+    100% {
+        opacity: 1;
+        left: 3%
+    }
+}
+@media (max-width:1024px) {
+    .arrowRight,
+    .arrowLeft {top: 90%}
+
+    .arrowRight {
+        left:55%;
+        animation: fadeUp 1s ease-in-out
+    }
+
+    .arrowLeft {
+        left:40%;
+        animation: fadeUp 1.2s ease-in-out
+    }
+
+    @keyframes fadeUp {
+        0% {
+            opacity: 0;
+            top:110%
+        }
+        100% {
+            opacity: 1;
+            top:90%
+        }
+    }
+
+}
+.arrowRight:hover,
+.arrowLeft:hover {
+    background-color: white;
+    color:black;
+}
+.rightArrow {font-size: 40px;}

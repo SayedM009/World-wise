@@ -1,0 +1,57 @@
+.mainImg {
+    background-image: url("https://defenders.org/sites/default/files/styles/meta_image/public/2019-04/gray_wolf_yellowstone_jacob_w._frank_nps.jpg?itok=3A6q1OrZ");
+}
+
+.mainContent {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 1000px;
+}
+
+.info {
+    flex-grow: 1;
+}
+.heading {
+    font-size: 40px;
+}
+.headingOne {
+    margin:40px 0 0
+}
+.headingTwo {
+    margin-bottom: 30px;
+}
+.paragraph {
+    width: 350px;
+}
+@media (max-width:1024px) {
+    .mainContent {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .headingOne {
+        margin: 0
+    }
+    .paragraph {
+        width: 600px;
+        margin-bottom: 30px;
+    }
+}
+.img {
+    width: 600px;
+    animation: lazy 1s ease-in-out;
+}
+@keyframes lazy {
+    0%{
+        transform: translateY(100px) scale(.8);
+        filter: blur(5px);
+    }
+    100%{
+        transform: translateY(0) scale(1);
+        filter: blur(0px);
+    }
+}

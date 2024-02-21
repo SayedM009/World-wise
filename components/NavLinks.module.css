@@ -5,6 +5,11 @@
     padding:20px 30px;
     position: relative;
 }
+@media (max-width:480px) {
+    .navBarContainer {
+        flex-direction: column;
+    }
+}
 .logoContainer {
     display: flex;
     justify-content: space-between;

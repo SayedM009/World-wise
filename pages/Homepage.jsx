@@ -1,9 +1,12 @@
 import Navlinks from "../components/Navlinks"
 import styles from "./pages-css-modules/Homepage.module.css"
+import Arrow from "../components/Arrow";
+import { Link } from "react-router-dom";
+
 export default function Homepage() {
-    return <section className={styles.mainPage}>
+    return <section className={`mainContainer ${styles.mainImg}`}>
     <Navlinks />
-    <div className={styles.overlay}></div>
+    <div className="overlay"></div>
     {/*  eslint-disable-next-line react/no-unescaped-entities */}
     <section className={styles.text}>
         <div className={styles.visParent}>
@@ -13,6 +16,10 @@ export default function Homepage() {
             <p className={`${styles.paragraph} ${styles.left}`}>WorldWise keeps track of your adventures.</p>
         </div>
         <p className={styles.info}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse velit pariatur minima quibusdam fuga. Nesciunt reprehenderit, vel facere voluptatem laudantium qui reiciendis excepturi expedita ut unde culpa, cupiditate, possimus nobis.</p>
+        <Link to="/app" >
+            <button className={styles.appBtn}>start tracking now</button>
+        </Link>
     </section>
+    <Arrow direction="right" path="pricing"/>
     </section>
 }
