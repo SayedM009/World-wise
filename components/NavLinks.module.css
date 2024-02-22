@@ -36,10 +36,12 @@
     text-decoration: none;
     padding:10px 20px;
     text-transform: uppercase;
-    color:white
+    color:white;
+    transition:.4s
 }
 
-.nav :global(.active) {
+.nav :global(.active),
+.links:hover:not(.logo) {
     background-color:#4caf50;
     color:white;
 

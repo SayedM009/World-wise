@@ -16,8 +16,10 @@ export default function Homepage() {
             <p className={`${styles.paragraph} ${styles.left}`}>WorldWise keeps track of your adventures.</p>
         </div>
         <p className={styles.info}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse velit pariatur minima quibusdam fuga. Nesciunt reprehenderit, vel facere voluptatem laudantium qui reiciendis excepturi expedita ut unde culpa, cupiditate, possimus nobis.</p>
-        <Link to="/app" >
+        <Link to="/app" className={styles.appBtnLink}>
             <button className={styles.appBtn}>start tracking now</button>
+            <div className={styles.layerOne}></div>
+            <div className={styles.layerTwo}></div>
         </Link>
     </section>
     <Arrow direction="right" path="pricing"/>

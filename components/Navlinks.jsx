@@ -3,9 +3,9 @@ import styles from "./NavLinks.module.css"
 export default function Navlinks() {
     // eslint-disable-next-line react/no-unescaped-entities
     return <nav className={styles.navBarContainer}>
-        <Link to="/" className={styles.links}>
+        <Link to="/" className={`${styles.links} ${styles.logo}`}>
             <div className={styles.logoContainer}>
-                <img className={styles.logoImg} src="https://img.favpng.com/11/4/18/logo-information-technology-vector-graphics-royalty-free-png-favpng-jzTgU9r4k7UB6ceGtFum3sNuB.jpg" alt="Logo"></img>
+                {/* <img className={styles.logoImg} src="https://img.favpng.com/11/4/18/logo-information-technology-vector-graphics-royalty-free-png-favpng-jzTgU9r4k7UB6ceGtFum3sNuB.jpg" alt="Logo"></img> */}
                 <h4 className={styles.logoText}>WorldWise</h4>
             </div>
         </Link>
