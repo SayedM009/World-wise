@@ -26,6 +26,7 @@
 .paragraph {
     width: 350px;
 }
+
 @media (max-width:1024px) {
     .mainContent {
         flex-direction: column;
@@ -53,5 +54,17 @@
     100%{
         transform: translateY(0) scale(1);
         filter: blur(0px);
+    }
+}
+@media (max-width:767px) {
+    .heading {
+        font-size: 30px;
+    }
+    .paragraph {
+        width: 350px;
+        margin: 0 auto 30px;
+    }
+    .img {
+        width: 350px;
     }
 }

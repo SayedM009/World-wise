@@ -58,3 +58,16 @@
         filter: blur(0px);
     }
 }
+
+@media (max-width:767px) {
+    .heading {
+        font-size: 30px;
+    }
+    .paragraph {
+        width: 350px;
+        margin: 0 auto 30px;
+    }
+    .img {
+        width: 350px;
+    }
+}

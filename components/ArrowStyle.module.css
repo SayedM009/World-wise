@@ -44,6 +44,18 @@
         left: 3%
     }
 }
+@media (max-width:767px) {
+    .arrowRight,
+    .arrowLeft {top: 90%}
+
+    .arrowRight {
+        left:55%;
+    }
+
+    .arrowLeft {
+        left:35% !important;
+    }
+}
 @media (max-width:1024px) {
     .arrowRight,
     .arrowLeft {top: 90%}

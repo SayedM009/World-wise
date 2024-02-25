@@ -24,6 +24,11 @@
     cursor: pointer;
     color:white;
 }
+@media (max-width:767px) {
+    .logo {
+        margin-bottom: 20px;
+    }
+}
 .nav {
     list-style: none;
     display: flex;

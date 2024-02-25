@@ -10,13 +10,19 @@
     width: 450px;
     height: 600px;
     background-color: white;
-    /* display: flex;
-    flex-wrap: wrap;
-    align-content: space-between; */
     color:black;
     border-radius: 30px;
     padding:20px 30px;
     overflow: hidden;
+    animation: fadeIn 1s ease-in-out
+}
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
 .container::before {
     content: "";
@@ -40,11 +46,50 @@
     right:-40%;
     z-index: -3;
 }
+.arrowBack {
+    animation: fadeLeft 0.7s ease-in-out;
+    display: block;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .2s;
+    border-radius: 50%;
+}
+.arrowBack:hover {
+    background-color: black;
+}
+@keyframes fadeLeft {
+    0% {
+        opacity: 0;
+        transform:translateX(30px)
+    }
+    100% {
+        opacity: 1;
+        transform:translateX(0)
+    }
+}
 .greeting {
-    margin: 100px 0 100px;
+    margin: 90px 0 80px;
     font-size: 25px;
     position: relative;
     color: white;
+}
+.greeting span {
+    animation: fadeUp 0.9s ease-in-out;
+    display: block;
+}
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform:translateY(30px)
+    }
+    100% {
+        opacity: 1;
+        transform:translateY(0)
+    }
 }
 .greeting::before {
     content: "";
@@ -77,12 +122,63 @@
     border-bottom: 1px solid #CCC;
     /* transition: .5s; */
     outline: none;
-    padding:5px 0
+    padding:5px 0;
+    font-family: inherit;
 }
 
-.form input:focus {
-    border-bottom: 2px solid black;
+.focusedOrFilled {
+    border-bottom: 2px solid black !important;
 }
-.test {
+.up {
     transform:translateY(0);
 }
+
+.loginSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%
+}
+
+.loginSection > * {
+    display: block;
+}
+.loginSection span {
+    font-size: 20px;
+}
+.actions {
+    margin-top: 55px;
+    display: flex;
+    justify-content: space-between;
+}
+.loginSection button{
+    /* background-image:linear-gradient(90deg, #F16896 40%,#3023AE 20%, #E8C872 ); */
+    background-color:#F16896;
+    animation: fadeLeft 1s ease-in-out;
+    color:white;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+}
+.actions span {
+    text-decoration: underline;
+    cursor: pointer;
+    transition: .5s;
+}
+.actions span:hover {
+    text-decoration: none;
+}
+
+@media (max-width:767px) {
+    .container {
+        width:350px;
+        height: 570px;
+    }
+    .actions {
+        margin-top: 25px;
+    }
+}
+
