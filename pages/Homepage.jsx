@@ -1,6 +1,6 @@
-import Navlinks from "../components/Navlinks"
+import Navlinks from "../components/NavLinks/Navlinks"
 import styles from "./pages-css-modules/Homepage.module.css"
-import Arrow from "../components/Arrow";
+import Arrow from "../components/Arrows/Arrow";
 import { Link } from "react-router-dom";
 
 export default function Homepage() {

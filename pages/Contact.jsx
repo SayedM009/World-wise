@@ -1,6 +1,6 @@
-import Navlinks from "../components/Navlinks"
+import Navlinks from "../components/NavLinks/Navlinks"
 import styles from "./pages-css-modules/Contact.module.css"
-import Arrow from "../components/Arrow"
+import Arrow from "../components/Arrows/Arrow"
 export default function Contact() {
     return <section className={`mainContainer ${styles.mainImg}`}>
     <Navlinks />

@@ -1,0 +1,22 @@
+.logo {
+    text-decoration: none;
+}
+.logoContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logoImg {
+    width: 70px;
+}
+.logoText {
+    margin-left: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color:white;
+}
+@media (max-width:767px) {
+    .logo {
+        margin-bottom: 20px;
+    }
+}

@@ -1,5 +1,5 @@
-import Navlinks from '../components/Navlinks';
-import Arrow from '../components/Arrow';
+import Navlinks from '../components/NavLinks/Navlinks';
+import Arrow from '../components/Arrows/Arrow';
 import styles from "./pages-css-modules/Login.module.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';

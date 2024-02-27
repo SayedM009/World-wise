@@ -1,5 +1,5 @@
-import Navlinks from "../components/Navlinks"
-import Arrow from "../components/Arrow"
+import Navlinks from "../components/NavLinks/Navlinks"
+import Arrow from "../components/Arrows/Arrow"
 import styles from "./pages-css-modules/Pricing.module.css"
 export default function Pricing() {
     return <section className={`mainContainer ${styles.mainImg}`}>

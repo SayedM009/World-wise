@@ -1,14 +1,10 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styles from "./NavLinks.module.css"
+import Logo from "../Logo/Logo";
 export default function Navlinks() {
     // eslint-disable-next-line react/no-unescaped-entities
     return <nav className={styles.navBarContainer}>
-        <Link to="/" className={`${styles.links} ${styles.logo}`}>
-            <div className={styles.logoContainer}>
-                {/* <img className={styles.logoImg} src="https://img.favpng.com/11/4/18/logo-information-technology-vector-graphics-royalty-free-png-favpng-jzTgU9r4k7UB6ceGtFum3sNuB.jpg" alt="Logo"></img> */}
-                <h4 className={styles.logoText}>WorldWise</h4>
-            </div>
-        </Link>
+        <Logo />
         <ul className={styles.nav}>
             <li>
                 <NavLink to="/pricing" className={styles.links}>pricing</NavLink>
