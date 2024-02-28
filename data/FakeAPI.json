@@ -1,19 +1,41 @@
 {
     "Countries"  : [
         {
-            "name": "Afghanistan",
-            "flag" : "🏴",
-            "time" : "2/25/2024"
+            "cityName": "Dubai",
+            "country" : "UAE",
+            "emoji" : "",
+            "date" : "2027-10-31T15:59:59.138Z",
+            "notes" : "I'm living there now.",
+            "position" : {
+                "lat" : 0,
+                "lng" : 0
+            },
+            "id" : 1
         },
         {
-            "name": "Egypt",
-            "flag" : "🏳",
-            "time" : "2/26/2024"
+            "cityName": "Cairo",
+            "country" : "Egypt",
+            "emoji" : "",
+            "date" : "2027-10-31T15:59:59.138Z",
+            "notes" : "The Capital",
+            "position" : {
+                "lat" : 0,
+                "lng" : 0
+            },
+            "id" : 1
         },
         {
-            "name": "UAE",
-            "flag" : "🏴",
-            "time" : "2/27/2024"
+            "cityName": "Damitta",
+            "country" : "Egypt",
+            "emoji" : "",
+            "date" : "2027-10-31T15:59:59.138Z",
+            "notes" : "I'm living there now.",
+            "position" : {
+                "lat" : 0,
+                "lng" : 0
+            },
+            "id" : 1
         }
+        
     ]
 }

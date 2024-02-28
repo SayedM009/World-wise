@@ -8,4 +8,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: .2s;
+}
+.selected {
+    border-top: 3px solid red !important;
+    border-right: 3px solid red !important;
+    border-bottom: 3px solid red !important;
+    transform: translateX(10px);
 }

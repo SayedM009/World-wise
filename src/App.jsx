@@ -13,18 +13,18 @@ export default function App() {
     async function fetching() {
       try {
         setIsLoading("is Loading....")
-        const cities = await fetch("http://localhost:8000/Countries")
+        const cities = await fetch("http://localhost:9000/Countries")
         const  data= await cities.json();
         console.log(data)
         setCities(data);
         setIsLoading("")
       } catch  (error) {
         console.log(error)
-        setIsLoading("Something Went Wrong Try Again !!!")
+        setIsLoading("Something Went Wrong Try Again! ⛔")
       }
     }
     fetching()
-  }, [])
+  }, [setIsLoading])
   return <BrowserRouter>
     <Routes>
       <Route path="/" element={<Homepage />}/>
