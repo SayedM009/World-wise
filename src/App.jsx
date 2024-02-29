@@ -1,11 +1,14 @@
 import { BrowserRouter,Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+
 import Homepage from "../pages/Homepage";
 import Pricing from "../pages/Pricing";
 import Contact from "../pages/Contact"
 import Login from "../pages/Login"
 import AppLayout from "../pages/AppLayout";
-import { useEffect, useState } from "react";
 import Cities from "../components/Cities/Cities";
+import CountriesList from "../components/ContriesList/CountriesList";
+
 export default function App() {
   const [cities, setCities] = useState([])
   const [isLoading, setIsLoading] = useState("")
@@ -34,7 +37,7 @@ export default function App() {
       <Route path="app" element={<AppLayout />}>
         <Route index element={<Cities />} />
         <Route path="cities" element={<Cities cities={cities} isLoading={isLoading}/>}/>
-        <Route path="countries" element={<p>Countries</p>}/>
+        <Route path="countries" element={<CountriesList cities={cities}/>}/>
         <Route path="form" element={<p>Form</p>}/>
       </Route>
       {/* <Route path="*" element={}/> */}

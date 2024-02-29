@@ -3,7 +3,7 @@
         {
             "cityName": "Dubai",
             "country" : "UAE",
-            "emoji" : "",
+            "emoji" : "https://flagcdn.com/w320/ae.png",
             "date" : "2027-10-31T15:59:59.138Z",
             "notes" : "I'm living there now.",
             "position" : {
@@ -15,7 +15,7 @@
         {
             "cityName": "Cairo",
             "country" : "Egypt",
-            "emoji" : "",
+            "emoji" : "https://flagcdn.com/w320/eg.png",
             "date" : "2027-10-31T15:59:59.138Z",
             "notes" : "The Capital",
             "position" : {
@@ -27,7 +27,7 @@
         {
             "cityName": "Damitta",
             "country" : "Egypt",
-            "emoji" : "",
+            "emoji" : "https://flagcdn.com/w320/eg.png",
             "date" : "2027-10-31T15:59:59.138Z",
             "notes" : "I'm living there now.",
             "position" : {
