@@ -8,7 +8,8 @@ import Login from "../pages/Login"
 import AppLayout from "../pages/AppLayout";
 import Cities from "../components/Cities/Cities";
 import CountriesList from "../components/ContriesList/CountriesList";
-
+import City from "../components/City/City"
+import Form from "../components/Form/Form";
 export default function App() {
   const [cities, setCities] = useState([])
   const [isLoading, setIsLoading] = useState("")
@@ -27,7 +28,7 @@ export default function App() {
       }
     }
     fetching()
-  }, [setIsLoading])
+  }, [])
   return <BrowserRouter>
     <Routes>
       <Route path="/" element={<Homepage />}/>
@@ -37,8 +38,9 @@ export default function App() {
       <Route path="app" element={<AppLayout />}>
         <Route index element={<Cities />} />
         <Route path="cities" element={<Cities cities={cities} isLoading={isLoading}/>}/>
+        <Route path="cities/:id" element={<City />} />
         <Route path="countries" element={<CountriesList cities={cities}/>}/>
-        <Route path="form" element={<p>Form</p>}/>
+        <Route path="form" element={<Form />}/>
       </Route>
       {/* <Route path="*" element={}/> */}
     </Routes>

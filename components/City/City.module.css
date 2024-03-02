@@ -1,0 +1,52 @@
+.city {
+    background-color: #525252;
+    width: 500px;
+    padding:20px 30px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+.city > span {
+    color: #c5c5c5;
+    text-transform: uppercase;
+}
+.city div,
+.city p,
+.city a {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 20px;
+    color:white
+}
+.city div {
+    display: flex;
+    align-items: center;
+    gap: 0 10px;
+}
+.city img {
+    width: 40px;
+}
+.city div span {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.city button {
+    background-color: transparent;
+    border: 1px solid #c5c5c5;
+    padding:10px 20px;
+    color:white;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    gap: 0 10px;
+    margin-top: 20px;
+    transition: .3s ;
+    border-radius: 5px;
+}
+
+.city button:hover {
+    border-color: black;
+}

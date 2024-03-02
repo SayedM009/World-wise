@@ -1,0 +1,63 @@
+.form {
+    background-color: #525252;
+    width: 500px;
+    padding:20px 30px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.form p {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    font-size: 20px;
+    color:white;
+    text-transform: uppercase;
+}
+.form input,
+.form textarea {
+    width: 100%;
+    padding:10px;
+    border-radius: 5px;
+    border:none;
+    outline:none;
+    font-family: inherit;
+    resize: none;
+}
+.form textarea {
+    height: 150px;
+}
+.form div {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form .add,
+.form .back {
+
+    padding:10px 20px;
+    color:white;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    gap: 0 10px;
+    transition: .3s ;
+    border-radius: 5px;
+}
+
+.form .add {
+    background-color: #4caf50;
+    border:  none;
+    
+} 
+.form .back {
+    background-color: transparent;
+    border: 1px solid #c5c5c5;
+}
+.form .back:hover {
+    border-color: black;
+    background-color: black;
+}
