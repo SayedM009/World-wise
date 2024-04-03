@@ -1,13 +1,17 @@
 import { Link, useNavigate, useParams } from "react-router-dom"
 import {useCities} from "../../Contexts/CitiesContext"
 import styles from "./City.module.css"
+import { useEffect } from "react"
 
 
 export default function City() {
     const {id} = useParams()
-    const {currentCity, getCity} = useCities()
+    const {currentCity, getCity, isLoading} = useCities()
     const navigat = useNavigate()
-    getCity(id)
+    useEffect(() => {
+        getCity(id)
+    }, [id])
+    if (isLoading) return <p>{isLoading}</p>
     return <section className={styles.city}>
         <span>CITY NAME</span>
         <div>

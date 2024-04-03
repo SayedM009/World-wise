@@ -1,5 +1,5 @@
 import { BrowserRouter,Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { CitiesProvider } from "../Contexts/CitiesContext";
 
 import Homepage from "../pages/Homepage";
 import Pricing from "../pages/Pricing";
@@ -10,7 +10,6 @@ import Cities from "../components/Cities/Cities";
 import CountriesList from "../components/ContriesList/CountriesList";
 import City from "../components/City/City"
 import Form from "../components/Form/Form";
-import { CitiesProvider } from "../Contexts/CitiesContext";
 export default function App() {
   
 

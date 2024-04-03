@@ -29,7 +29,7 @@ function CitiesProvider({children}) {
             setIsLoading("is Loading....")
             const cities = await fetch(`http://localhost:9000/cities/${id}`)
             const  data= await cities.json();
-            setCurrentCity(data)
+            setCurrentCity(data)    
             setIsLoading("")
         } catch  (error) {
             console.log(error)
