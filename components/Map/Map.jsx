@@ -58,7 +58,8 @@ function DetectClick() {
 
 function CurrentLocation({currentLocation, setCurrentLocation,setMapPosition}) {
 
-
+    const navigate = useNavigate()
+    const [userLocation, setUserLocation] = useState([])
     // Get the current position
     useEffect(function() {
         if (!currentLocation) return
@@ -68,17 +69,25 @@ function CurrentLocation({currentLocation, setCurrentLocation,setMapPosition}) {
                     navigator.geolocation.getCurrentPosition(resolve, reject)
                 })
                 const {latitude, longitude} = location.coords;
-                setMapPosition([latitude,longitude])
+                setMapPosition((coords) => coords = [latitude,longitude])
+                setUserLocation((c) => c = [latitude,longitude])
             } catch (error) {
                 console.error(error.message)
             } finally {
-                setCurrentLocation(false)
+                setCurrentLocation(c => c = false)
             }
         }
         getCurrentLocation()
-    }, [currentLocation,setMapPosition])
+    }, [currentLocation,setMapPosition, setCurrentLocation])    
 
+    useEffect(function () {
+        if (!(userLocation.length > 0)) return
+        console.log("ok")
+        if (currentLocation) {
+            navigate(`form?lat=${userLocation[0]}&lng=${userLocation[1]}`)
+        } 
 
+    }, [userLocation, navigate, currentLocation])
     
     // Hundle Getting Current Position & Open Form
     function handleLocationAndForm() {
