@@ -1,0 +1,32 @@
+.pageNotFound {
+    background-color: #111;
+    width: 100%;
+    height: 100vh;
+    color: white;
+    position: relative;
+    text-align: center;
+}
+.pageNotFound > div {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+.pageNotFound h1 {
+    font-size: 60px;
+    margin-bottom: 30px;
+}
+.pageNotFound .btn {
+    background-color: white;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 18px;;
+    border:none;
+    outline: none;
+}
+
+.pageNotFound .btn a {
+    text-decoration: none;
+    color: #111;
+    font-style: italic;
+}

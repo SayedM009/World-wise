@@ -8,6 +8,7 @@ function CitiesProvider({children}) {
     const [cities, setCities] = useState([])
     const [isLoading, setIsLoading] = useState("")
     const [currentCity, setCurrentCity] = useState({})
+    
     useEffect(function() {
         async function fetching() {
         try {
@@ -28,7 +29,7 @@ function CitiesProvider({children}) {
         try {
             setIsLoading("is Loading....")
             const cities = await fetch(`http://localhost:9000/cities/${id}`)
-            const  data= await cities.json();
+            const data= await cities.json();
             setCurrentCity(data)    
             setIsLoading("")
         } catch  (error) {
@@ -38,7 +39,7 @@ function CitiesProvider({children}) {
     }
     
 
-    return <CitiesContext.Provider value={{cities, isLoading, currentCity, getCity}}>
+    return <CitiesContext.Provider value={{cities, isLoading, currentCity, getCity, setCurrentCity}}>
         {children}
     </CitiesContext.Provider>
 }

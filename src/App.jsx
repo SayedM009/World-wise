@@ -1,6 +1,5 @@
 import { BrowserRouter,Routes, Route } from "react-router-dom";
 import { CitiesProvider } from "../Contexts/CitiesContext";
-
 import Homepage from "../pages/Homepage";
 import Pricing from "../pages/Pricing";
 import Contact from "../pages/Contact"
@@ -10,9 +9,8 @@ import Cities from "../components/Cities/Cities";
 import CountriesList from "../components/ContriesList/CountriesList";
 import City from "../components/City/City"
 import Form from "../components/Form/Form";
+import PageNotFound from "../pages/PageNotFound";
 export default function App() {
-  
-
   return <CitiesProvider>
       <BrowserRouter>
         <Routes>
@@ -27,7 +25,7 @@ export default function App() {
             <Route path="countries" element={<CountriesList/>}/>
             <Route path="form" element={<Form />}/>
           </Route>
-          {/* <Route path="*" element={}/> */}
+          <Route path="*" element={<PageNotFound />}/>
         </Routes>
     </BrowserRouter>
   </CitiesProvider>
