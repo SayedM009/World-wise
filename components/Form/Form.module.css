@@ -6,7 +6,8 @@
     margin-top: 30px;
 }
 
-.form p {
+.form label {
+    display: inline-block;
     margin-top: 20px;
     margin-bottom: 15px;
     font-weight: 500;
@@ -14,6 +15,19 @@
     color:white;
     text-transform: uppercase;
 }
+.form .cityWrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+:global(.react-datepicker-wrapper ){
+    width: 100%;
+    display: block;
+}
+
 .form input,
 .form textarea {
     width: 100%;
@@ -27,8 +41,8 @@
 .form textarea {
     height: 150px;
 }
-.form div {
-    margin-top: 20px;
+.form .btns {
+    margin-top: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;

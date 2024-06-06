@@ -33,13 +33,28 @@ function CitiesProvider({children}) {
             setCurrentCity(data)    
             setIsLoading("")
         } catch  (error) {
-            console.log(error)
+            setIsLoading("Something Went Wrong Try Again! ⛔")
+        }
+    }
+
+    async function createCity(newCity) {
+        try {
+            const cities = await fetch(`http://localhost:9000/cities`, {
+                method:"POST",
+                body:JSON.stringify(newCity),
+                headers : {
+                    "Content-Type" : "application/json"
+                }
+            })
+            const data= await cities.json();
+            setCities((cities) => [...cities, data])
+        } catch  (error) {
             setIsLoading("Something Went Wrong Try Again! ⛔")
         }
     }
     
 
-    return <CitiesContext.Provider value={{cities, isLoading, currentCity, getCity, setCurrentCity}}>
+    return <CitiesContext.Provider value={{cities, isLoading, currentCity, getCity, setCurrentCity, createCity}}>
         {children}
     </CitiesContext.Provider>
 }

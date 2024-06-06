@@ -5,24 +5,22 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet'
 import { useCities } from '../../Contexts/CitiesContext'
 import styles from './Map.module.css'
+import useUrlPosition from '../../hooks/useUrlPosition'
 
 function Map() {
     const {cities} = useCities()
-    const [searchParams] = useSearchParams()
     const [mapPosition, setMapPosition] = useState([40, 44])
     const [currentLocation, setCurrentLocation] = useState(false)
-    const lat = searchParams.get("lat")
-    const lng = searchParams.get("lng")
+    // Custom hook to get position from url
+    const [lat, lng] = useUrlPosition()
 
+    // This use effect makes the lat and lng in sync with url
     useEffect(function() {
         if (lat && lng) setMapPosition([lat, lng])
     }, [lat, lng])
 
-    
-
-
     return <div className={`${styles.mapContainer}`}>
-            <MapContainer center={mapPosition} zoom={13} scrollWheelZoom={true} className={`${styles.map}`}>
+            <MapContainer center={mapPosition} zoom={20} scrollWheelZoom={true} className={`${styles.map}`}>
                 <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"/>
                 {cities.map((city, i) => <>
                 <Marker position={[city.position.lat, city.position.lng]} key={i + 1 *70}>
@@ -35,7 +33,7 @@ function Map() {
                 <ChangeCenter position={mapPosition}/>
                 <DetectClick />
             </MapContainer>
-            <CurrentLocation currentLocation={currentLocation} setCurrentLocation={setCurrentLocation} setMapPosition={setMapPosition}/>
+            <CurrentLocation currentLocation={currentLocation} setCurrentLocation={setCurrentLocation} mapPosition={setMapPosition}/>
         </div>
 }
 
@@ -56,11 +54,10 @@ function DetectClick() {
     })
 }
 
-function CurrentLocation({currentLocation, setCurrentLocation,setMapPosition}) {
+// Get Current user position
+function CurrentLocation({currentLocation, setCurrentLocation,mapPosition}) {
 
-    const navigate = useNavigate()
-    const [userLocation, setUserLocation] = useState([])
-    // Get the current position
+    // // Get the current position
     useEffect(function() {
         if (!currentLocation) return
         const getCurrentLocation = async function() {
@@ -68,34 +65,16 @@ function CurrentLocation({currentLocation, setCurrentLocation,setMapPosition}) {
                 const location = await new Promise((resolve, reject) => {
                     navigator.geolocation.getCurrentPosition(resolve, reject)
                 })
-                const {latitude, longitude} = location.coords;
-                setMapPosition((coords) => coords = [latitude,longitude])
-                setUserLocation((c) => c = [latitude,longitude])
+                const {latitude : lat, longitude : lng} = location.coords;
+                mapPosition([`${lat}`, `${lng}`])
             } catch (error) {
                 console.error(error.message)
-            } finally {
-                setCurrentLocation(c => c = false)
-            }
+            } 
         }
         getCurrentLocation()
-    }, [currentLocation,setMapPosition, setCurrentLocation])    
+    }, [currentLocation, setCurrentLocation, mapPosition])    
 
-    useEffect(function () {
-        if (!(userLocation.length > 0)) return
-        console.log("ok")
-        if (currentLocation) {
-            navigate(`form?lat=${userLocation[0]}&lng=${userLocation[1]}`)
-        } 
-
-    }, [userLocation, navigate, currentLocation])
-    
-    // Hundle Getting Current Position & Open Form
-    function handleLocationAndForm() {
-        setCurrentLocation(true)
-    }
-
-    // return <div className={styles.currentLocation} onClick={() => handleLocationAndForm()}>
-    return <div className={styles.currentLocation} onClick={() => handleLocationAndForm()}>
+    return <div className={styles.currentLocation} onClick={() => setCurrentLocation(true)}>
         <span></span>
         <span></span>
     </div>
