@@ -1,7 +1,6 @@
 .containerCountries {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
     gap:20px 0
 }
 .containerImg {
@@ -11,8 +10,8 @@
     border-left: 5px solid #4caf50;
     display: flex;
     align-items:  center;
-    width: 46%;
     margin: auto;
+    width: 80%;
 }
 .img {
     width: 50px;
