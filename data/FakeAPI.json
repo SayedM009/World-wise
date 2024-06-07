@@ -1,123 +1,15 @@
 {
   "cities": [
     {
-      "cityName": "Dubai",
-      "country": "UAE",
-      "emoji": "https://flagcdn.com/w320/ae.png",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "I'm living there now.",
-      "position": {
-        "lat": 25.258847,
-        "lng": 55.280276
-      },
-      "id": "1098765"
-    },
-    {
-      "cityName": "NY",
-      "country": "USA",
-      "emoji": "https://flagcdn.com/w320/us.png",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "I'm living there now.",
-      "position": {
-        "lat": 40.699087,
-        "lng": -74.063391
-      },
-      "id": "197865"
-    },
-    {
-      "cityName": "Damitta",
-      "country": "Egypt",
-      "emoji": "https://flagcdn.com/w320/eg.png",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "I'm living there now.",
-      "position": {
-        "lat": 31.511401,
-        "lng": 31.840381
-      },
-      "id": "1163546"
-    },
-    {
-      "cityName": "London",
-      "country": "United Kingdom",
-      "emoji": "https://flagcdn.com/w320/gb.png",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "I'm living there now.",
-      "position": {
-        "lat": 51.470438,
-        "lng": -0.138835
-      },
-      "id": "23459752"
-    },
-    {
-      "id": "1e75",
+      "id": "a308",
       "cityName": "Igdir",
       "country": "Turkiye",
       "emoji": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg",
-      "date": "2024-06-06T13:59:11.095Z",
+      "date": "2024-06-07T12:53:22.432Z",
       "notes": "",
       "position": {
-        "lat": "40.000502206135266",
-        "lng": "44.000269844944725"
-      }
-    },
-    {
-      "id": "f230",
-      "cityName": "As Sukhnah",
-      "country": "Syrian Arab Republic (the)",
-      "emoji": "https://upload.wikimedia.org/wikipedia/commons/5/53/Flag_of_Syria.svg",
-      "date": "2024-06-06T13:59:42.015Z",
-      "notes": "",
-      "position": {
-        "lat": "35.0120020431607",
-        "lng": "38.97228212802503"
-      }
-    },
-    {
-      "id": "cdda",
-      "cityName": "Dubai",
-      "country": "United Arab Emirates (the)",
-      "emoji": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_United_Arab_Emirates.svg",
-      "date": "2024-06-06T14:02:15.578Z",
-      "notes": "",
-      "position": {
-        "lat": "25.17573795238135",
-        "lng": "55.389870885359265"
-      }
-    },
-    {
-      "id": "0489",
-      "cityName": "Tselemti",
-      "country": "Ethiopia",
-      "emoji": "https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ethiopia.svg",
-      "date": "2024-06-06T14:02:59.569Z",
-      "notes": "السودان الشقيق ",
-      "position": {
-        "lat": "13.581920900545857",
-        "lng": "38.020446126435594"
-      }
-    },
-    {
-      "id": "6c90",
-      "cityName": "Vilhena",
-      "country": "Brazil",
-      "emoji": "https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg",
-      "date": "2024-06-06T14:02:59.569Z",
-      "notes": "Nemar JR",
-      "position": {
-        "lat": "-12.554563528593656",
-        "lng": "-61.47931193601313"
-      }
-    },
-    {
-      "id": "0bfe",
-      "cityName": "Stanley",
-      "country": "Falkland Islands (the) [Malvinas]",
-      "emoji": "https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_Falkland_Islands.svg",
-      "date": "2024-06-06T14:02:59.569Z",
-      "notes": "",
-      "position": {
-        "lat": "-51.754240074033525",
-        "lng": "-60.04223893175759"
+        "lat": "40.00131585306229",
+        "lng": "43.99869258722585"
       }
     }
   ]

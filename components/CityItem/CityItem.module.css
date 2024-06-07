@@ -1,20 +1,37 @@
 .city {
-    width: 500px;
-    padding:10px 20px;
-    background-color: #525252;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border-left: 5px solid #4caf50;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: .2s;
-    color:white;
-    text-decoration: none;
+  width: 500px;
+  padding: 10px 20px;
+  background-color: #525252;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border-left: 5px solid #4caf50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s;
+  color: white;
+  text-decoration: none;
 }
 .selected {
-    border-top: 2px solid #4caf50 !important;
-    border-right: 2px solid #4caf50 !important;
-    border-bottom: 2px solid #4caf50 !important;
-    transform: translateX(10px);
+  border-top: 2px solid #4caf50 !important;
+  border-right: 2px solid #4caf50 !important;
+  border-bottom: 2px solid #4caf50 !important;
+  transform: translateX(10px);
+}
+
+.delet {
+  background-color: #333;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.delet:hover {
+  opacity: 0.4;
 }

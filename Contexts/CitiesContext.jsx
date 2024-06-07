@@ -1,68 +1,114 @@
 /* eslint-disable react/prop-types */
-import { createContext, useState, useEffect, useContext } from "react";
+import {
+  createContext,
+  useState,
+  useEffect,
+  useContext,
+  // useReducer,
+} from "react";
+
+// const initialSate = {
+//   cities: [],
+//   isLoading: "",
+//   currentCity: {},
+// };
+
+// function reducer(state, action) {
+//   switch (action.type) {
+//     case "addingCities":
+//       return { ...state, cities: action.payload };
+//     case "changeIsLoading":
+//       return { ...state, isLoading: action.payload };
+//     case "changeCurrentCity":
+//       return { ...state, currentCity: action.payload };
+//   }
+// }
 
 const CitiesContext = createContext();
 
-function CitiesProvider({children}) {
+function CitiesProvider({ children }) {
+  // const [{cities}, dispatch] = useReducer(reducer, initialSate)
+  const [cities, setCities] = useState([]);
+  const [isLoading, setIsLoading] = useState("");
+  const [currentCity, setCurrentCity] = useState({});
 
-    const [cities, setCities] = useState([])
-    const [isLoading, setIsLoading] = useState("")
-    const [currentCity, setCurrentCity] = useState({})
-    
-    useEffect(function() {
-        async function fetching() {
-        try {
-            setIsLoading("is Loading....")
-            const cities = await fetch("http://localhost:9000/cities")
-            const  data= await cities.json();
-            setCities(data);
-            setIsLoading("")
-        } catch  (error) {
-            console.log(error)
-            setIsLoading("Something Went Wrong Try Again! ⛔")
-        }
-        }
-        fetching()
-    }, [])
-
-    async function getCity(id) {
-        try {
-            setIsLoading("is Loading....")
-            const cities = await fetch(`http://localhost:9000/cities/${id}`)
-            const data= await cities.json();
-            setCurrentCity(data)    
-            setIsLoading("")
-        } catch  (error) {
-            setIsLoading("Something Went Wrong Try Again! ⛔")
-        }
+  useEffect(function () {
+    async function fetching() {
+      try {
+        setIsLoading("is Loading....");
+        const cities = await fetch("http://localhost:9000/cities");
+        const data = await cities.json();
+        setCities(data);
+        setIsLoading("");
+      } catch (error) {
+        console.log(error);
+        setIsLoading("Something Went Wrong Try Again! ⛔");
+      }
     }
+    fetching();
+  }, []);
 
-    async function createCity(newCity) {
-        try {
-            const cities = await fetch(`http://localhost:9000/cities`, {
-                method:"POST",
-                body:JSON.stringify(newCity),
-                headers : {
-                    "Content-Type" : "application/json"
-                }
-            })
-            const data= await cities.json();
-            setCities((cities) => [...cities, data])
-        } catch  (error) {
-            setIsLoading("Something Went Wrong Try Again! ⛔")
-        }
+  async function getCity(id) {
+    try {
+      setIsLoading("is Loading....");
+      const cities = await fetch(`http://localhost:9000/cities/${id}`);
+      const data = await cities.json();
+      setCurrentCity(data);
+      setIsLoading("");
+    } catch (error) {
+      setIsLoading("Something Went Wrong Try Again! ⛔");
     }
-    
+  }
 
-    return <CitiesContext.Provider value={{cities, isLoading, currentCity, getCity, setCurrentCity, createCity}}>
-        {children}
+  async function createCity(newCity) {
+    try {
+      const cities = await fetch(`http://localhost:9000/cities`, {
+        method: "POST",
+        body: JSON.stringify(newCity),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await cities.json();
+      setCities((cities) => [...cities, data]);
+    } catch (error) {
+      setIsLoading("Something Went Wrong Try Again! ⛔");
+    }
+  }
+
+  async function deleteCity(id) {
+    try {
+      await fetch(`http://localhost:9000/cities/${id}`, {
+        method: "DELETE",
+      });
+      setCities((cities) => cities.filter((city) => city.id !== id));
+    } catch (error) {
+      setIsLoading("Something Went Wrong Try Again! ⛔");
+    }
+  }
+
+  return (
+    <CitiesContext.Provider
+      value={{
+        cities,
+        isLoading,
+        currentCity,
+        getCity,
+        setCurrentCity,
+        createCity,
+        deleteCity,
+      }}
+    >
+      {children}
     </CitiesContext.Provider>
+  );
 }
 
 function useCities() {
-    const context = useContext(CitiesContext)
-    if (context === 'undefind') throw new Error("Can not  be used outside of the Cities Provider")
-    return context;
+  const context = useContext(CitiesContext);
+  if (context === "undefind")
+    throw new Error("Can not  be used outside of the Cities Provider");
+  return context;
 }
 
-export {CitiesProvider, useCities}
+export { CitiesProvider, useCities };
