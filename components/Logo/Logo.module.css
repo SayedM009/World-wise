@@ -1,22 +1,23 @@
 .logo {
-    text-decoration: none;
+  text-decoration: none;
 }
 .logoContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .logoImg {
-    width: 70px;
+  width: 70px;
+  height: 44px;
 }
 .logoText {
-    margin-left: 15px;
-    font-size: 28px;
-    cursor: pointer;
-    color:white;
+  margin-left: 15px;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
 }
-@media (max-width:767px) {
-    .logo {
-        margin-bottom: 20px;
-    }
+@media (max-width: 767px) {
+  .logo {
+    margin-bottom: 20px;
+  }
 }

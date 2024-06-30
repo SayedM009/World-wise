@@ -1,66 +1,78 @@
 /* eslint-disable react/prop-types */
 import {
   createContext,
-  useState,
+  useReducer,
   useEffect,
   useContext,
   // useReducer,
 } from "react";
 
-// const initialSate = {
-//   cities: [],
-//   isLoading: "",
-//   currentCity: {},
-// };
+const initialSate = {
+  cities: [],
+  isLoading: "",
+  currentCity: {},
+};
 
-// function reducer(state, action) {
-//   switch (action.type) {
-//     case "addingCities":
-//       return { ...state, cities: action.payload };
-//     case "changeIsLoading":
-//       return { ...state, isLoading: action.payload };
-//     case "changeCurrentCity":
-//       return { ...state, currentCity: action.payload };
-//   }
-// }
+function reducer(state, action) {
+  switch (action.type) {
+    case "addingCities":
+      return { ...state, cities: action.payload, isLoading: "" };
+    case "addingCity":
+      return {
+        ...state,
+        cities: [...state.cities, action.payload],
+        isLoading: "",
+      };
+    case "deletingCity":
+      return {
+        ...state,
+        cities: state.cities.filter((city) => city.id !== action.payload),
+        isLoading: "",
+      };
+    case "changeCurrentCity":
+      return { ...state, currentCity: action.payload, isLoading: "" };
+    case "changeIsLoading":
+      return { ...state, isLoading: "is Loading...." };
+    case "rejected":
+      return { ...state, isLoading: "Something Went Wrong Try Again! ⛔" };
+  }
+}
 
 const CitiesContext = createContext();
 
 function CitiesProvider({ children }) {
-  // const [{cities}, dispatch] = useReducer(reducer, initialSate)
-  const [cities, setCities] = useState([]);
-  const [isLoading, setIsLoading] = useState("");
-  const [currentCity, setCurrentCity] = useState({});
+  const [{ cities, isLoading, currentCity }, dispatch] = useReducer(
+    reducer,
+    initialSate
+  );
 
   useEffect(function () {
     async function fetching() {
+      dispatch({ type: "changeIsLoading" });
       try {
-        setIsLoading("is Loading....");
         const cities = await fetch("http://localhost:9000/cities");
         const data = await cities.json();
-        setCities(data);
-        setIsLoading("");
+        dispatch({ type: "addingCities", payload: data });
       } catch (error) {
-        console.log(error);
-        setIsLoading("Something Went Wrong Try Again! ⛔");
+        dispatch({ type: "rejected" });
       }
     }
     fetching();
   }, []);
 
   async function getCity(id) {
+    dispatch({ type: "changeIsLoading" });
     try {
-      setIsLoading("is Loading....");
       const cities = await fetch(`http://localhost:9000/cities/${id}`);
       const data = await cities.json();
-      setCurrentCity(data);
-      setIsLoading("");
+      dispatch({ type: "changeCurrentCity", payload: data });
     } catch (error) {
-      setIsLoading("Something Went Wrong Try Again! ⛔");
+      dispatch({ type: "rejected" });
     }
   }
 
   async function createCity(newCity) {
+    dispatch({ type: "changeIsLoading" });
     try {
       const cities = await fetch(`http://localhost:9000/cities`, {
         method: "POST",
@@ -70,20 +82,22 @@ function CitiesProvider({ children }) {
         },
       });
       const data = await cities.json();
-      setCities((cities) => [...cities, data]);
+      dispatch({ type: "addingCity", payload: data });
     } catch (error) {
-      setIsLoading("Something Went Wrong Try Again! ⛔");
+      dispatch({ type: "rejected" });
     }
   }
 
   async function deleteCity(id) {
+    dispatch({ type: "changeIsLoading" });
     try {
       await fetch(`http://localhost:9000/cities/${id}`, {
         method: "DELETE",
       });
-      setCities((cities) => cities.filter((city) => city.id !== id));
+      dispatch({ type: "deletingCity", payload: id });
+      // setCities((cities) => );
     } catch (error) {
-      setIsLoading("Something Went Wrong Try Again! ⛔");
+      dispatch({ type: "rejected" });
     }
   }
 
@@ -94,7 +108,6 @@ function CitiesProvider({ children }) {
         isLoading,
         currentCity,
         getCity,
-        setCurrentCity,
         createCity,
         deleteCity,
       }}

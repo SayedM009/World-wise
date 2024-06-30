@@ -1,15 +1,39 @@
 {
   "cities": [
     {
-      "id": "a308",
-      "cityName": "Igdir",
-      "country": "Turkiye",
-      "emoji": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg",
-      "date": "2024-06-07T12:53:22.432Z",
-      "notes": "",
+      "id": "dd88",
+      "cityName": "Damietta",
+      "country": "Egypt",
+      "emoji": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Egypt.svg",
+      "date": "2024-06-30T14:01:02.957Z",
+      "notes": "it is my city\n",
       "position": {
-        "lat": "40.00131585306229",
-        "lng": "43.99869258722585"
+        "lat": "31.414600276313234",
+        "lng": "31.821899414062504"
+      }
+    },
+    {
+      "id": "9d90",
+      "cityName": "Cairo",
+      "country": "Egypt",
+      "emoji": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Egypt.svg",
+      "date": "2024-06-30T14:01:02.957Z",
+      "notes": "The capital of Egypt",
+      "position": {
+        "lat": "30.050076521698735",
+        "lng": "31.239624023437504"
+      }
+    },
+    {
+      "id": "96de",
+      "cityName": "Dubai",
+      "country": "United Arab Emirates (the)",
+      "emoji": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_United_Arab_Emirates.svg",
+      "date": "2024-06-30T14:01:02.957Z",
+      "notes": "Where i am working right now",
+      "position": {
+        "lat": "25.1664065979598",
+        "lng": "55.4109138250351"
       }
     }
   ]

@@ -1,11 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
-<<<<<<< HEAD
-import { useNavigate } from "react-router-dom";
-=======
 import { useNavigate, useSearchParams } from "react-router-dom";
->>>>>>> 804345cd8862d27daff13be75fadc1e60ba950f3
 import {
   MapContainer,
   TileLayer,
@@ -16,18 +12,6 @@ import {
 } from "react-leaflet";
 import { useCities } from "../../Contexts/CitiesContext";
 import styles from "./Map.module.css";
-<<<<<<< HEAD
-import useUrlPosition from "../../hooks/useUrlPosition";
-
-function Map() {
-  const { cities } = useCities();
-  const [mapPosition, setMapPosition] = useState([40, 44]);
-  const [currentLocation, setCurrentLocation] = useState(false);
-  // Custom hook to get position from url
-  const [lat, lng] = useUrlPosition();
-
-  // This use effect makes the lat and lng in sync with url
-=======
 
 function Map() {
   const { cities } = useCities();
@@ -37,7 +21,6 @@ function Map() {
   const lat = searchParams.get("lat");
   const lng = searchParams.get("lng");
 
->>>>>>> 804345cd8862d27daff13be75fadc1e60ba950f3
   useEffect(
     function () {
       if (lat && lng) setMapPosition([lat, lng]);
@@ -49,11 +32,7 @@ function Map() {
     <div className={`${styles.mapContainer}`}>
       <MapContainer
         center={mapPosition}
-<<<<<<< HEAD
-        zoom={20}
-=======
         zoom={13}
->>>>>>> 804345cd8862d27daff13be75fadc1e60ba950f3
         scrollWheelZoom={true}
         className={`${styles.map}`}
       >
@@ -65,7 +44,7 @@ function Map() {
           <>
             <Marker
               position={[city.position.lat, city.position.lng]}
-              key={i + 1 * 70}
+              key={i + 1 * 70 + i}
             >
               <Popup>
                 <img
@@ -83,11 +62,7 @@ function Map() {
       <CurrentLocation
         currentLocation={currentLocation}
         setCurrentLocation={setCurrentLocation}
-<<<<<<< HEAD
-        mapPosition={setMapPosition}
-=======
         setMapPosition={setMapPosition}
->>>>>>> 804345cd8862d27daff13be75fadc1e60ba950f3
       />
     </div>
   );
@@ -108,11 +83,6 @@ function DetectClick() {
   });
 }
 
-<<<<<<< HEAD
-// Get Current user position
-function CurrentLocation({ currentLocation, setCurrentLocation, mapPosition }) {
-  // // Get the current position
-=======
 function CurrentLocation({
   currentLocation,
   setCurrentLocation,
@@ -121,7 +91,6 @@ function CurrentLocation({
   const navigate = useNavigate();
   const [userLocation, setUserLocation] = useState([]);
   // Get the current position
->>>>>>> 804345cd8862d27daff13be75fadc1e60ba950f3
   useEffect(
     function () {
       if (!currentLocation) return;
@@ -130,12 +99,6 @@ function CurrentLocation({
           const location = await new Promise((resolve, reject) => {
             navigator.geolocation.getCurrentPosition(resolve, reject);
           });
-<<<<<<< HEAD
-          const { latitude: lat, longitude: lng } = location.coords;
-          mapPosition([`${lat}`, `${lng}`]);
-        } catch (error) {
-          console.error(error.message);
-=======
           const { latitude, longitude } = location.coords;
           setMapPosition((coords) => (coords = [latitude, longitude]));
           setUserLocation((c) => (c = [latitude, longitude]));
@@ -143,20 +106,10 @@ function CurrentLocation({
           console.error(error.message);
         } finally {
           setCurrentLocation((c) => (c = false));
->>>>>>> 804345cd8862d27daff13be75fadc1e60ba950f3
         }
       };
       getCurrentLocation();
     },
-<<<<<<< HEAD
-    [currentLocation, setCurrentLocation, mapPosition]
-  );
-
-  return (
-    <div
-      className={styles.currentLocation}
-      onClick={() => setCurrentLocation(true)}
-=======
     [currentLocation, setMapPosition, setCurrentLocation]
   );
 
@@ -181,7 +134,6 @@ function CurrentLocation({
     <div
       className={styles.currentLocation}
       onClick={() => handleLocationAndForm()}
->>>>>>> 804345cd8862d27daff13be75fadc1e60ba950f3
     >
       <span></span>
       <span></span>

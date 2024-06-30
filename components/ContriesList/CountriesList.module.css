@@ -1,7 +1,12 @@
 .containerCountries {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px 0;
+  gap: 20px;
+}
+@media (max-width: 991px) {
+  .containerCountries {
+    display: block;
+  }
 }
 .containerImg {
   padding: 15px 10px;
@@ -11,7 +16,8 @@
   display: flex;
   align-items: center;
   margin: auto;
-  width: 80%;
+  width: 100%;
+  margin-bottom: 10px;
 }
 .img {
   width: 50px;
